@@ -7,6 +7,7 @@ function getComputerChoice() {
     let randomWeapon = Math.floor(Math.random()* weapons.length);
     let computerWeapon = weapons[randomWeapon];
     return computerWeapon;
+    TEST
 }
 
 console.log(getComputerChoice());
