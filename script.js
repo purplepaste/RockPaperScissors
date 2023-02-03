@@ -3,24 +3,70 @@ alert("Hello!");
 function getComputerChoice() {
     // this function returns one of three randomly selected values: rock, paper, or scissors//
 
-    let weapons = ["Rock", "Paper", "Scissors"];
+    let weapons = ['rock', 'paper', 'scissors'];
     let randomWeapon = Math.floor(Math.random()* weapons.length);
-    let computerSelection = weapons[randomWeapon].toLowerCase();
+    let computerSelection = weapons[randomWeapon];
     return computerSelection;
     
 }
 
 function getPlayerChoice() {
-    let playerSelection = prompt("Choose your weapon! Select rock, paper, or scissors.", "Choose an available weapon");
-    playerSelection = playerSelection.toLowerCase();
+    let input = prompt("Choose your weapon! Select rock, paper, or scissors.");
+    let playerSelection = input.toLowerCase();
     return playerSelection;
-
+    
     // this function takes in user input in the form of one of three selectable values: rock, paper, or scissors //
     // this function returns the selected value
 }
+const computerSelection = getComputerChoice();
+const playerSelection = getPlayerChoice();
 
-console.log(getPlayerChoice());
-console.log(getComputerChoice());
+function checker(playerSelection) {
+    if (playerSelection != "rock" || "paper" || "scissors") {
+        console.log("Please chose an available weapon")
+        getPlayerChoice();
+    }
+    else return;
+}
+
+function game (computerSelection, playerSelection) {
+    console.log("The computer chose " + computerSelection);
+    //checker();
+    console.log("You chose " + playerSelection);
+    
+        if (computerSelection == "rock" && playerSelection == "paper"){
+            console.log("You win!");
+        }
+
+        else if (computerSelection == "rock" && playerSelection == "scissors") {
+            console.log("The Computer wins!");
+        }
+
+        else if (computerSelection == "paper" && playerSelection == "rock") {
+            console.log("The Computer wins!");
+        }
+
+        else if (computerSelection == "paper" && playerSelection == "scissors") {
+            console.log("You win!");
+        }
+
+        else if (computerSelection == "scissors" && playerSelection == "rock") {
+            console.log("You win!");
+        }
+
+        else if (computerSelection == "scissors" && playerSelection == "paper") {
+            console.log("The Computer wins!");
+        }
+        
+        else if (computerSelection == playerSelection) {
+            console.log("It's a tie!");
+        }
+
+    }
+
+game(computerSelection, playerSelection);
+
+
 
 
 
