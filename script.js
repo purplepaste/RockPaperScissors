@@ -1,18 +1,3 @@
-alert("Hello!");
-
-//const computerSelection = getComputerChoice();
-//const playerSelection = getPlayerChoice();
-
-//unction checker(playerSelection) {
-// this function takes in playerselection, 
-//compares it to one of the three available weapons, 
-//and asks for input if it is not equal to "rock", "paper", or "scissors".
-
-    //if (playerSelection != "rock" || "paper" || "scissors") {
-      //  console.log("Please chose an available weapon")
-        //getPlayerChoice();
-  //  else return;
-//
 
 function getComputerChoice() {
     let weapons = ['rock', 'paper', 'scissors'];
@@ -24,6 +9,11 @@ function getComputerChoice() {
 function getPlayerChoice() {    
     let input = prompt("Choose your weapon! Select rock, paper, or scissors.");
     let playerSelection = input.toLowerCase();
+    while ((playerSelection !== "rock") && (playerSelection !== "paper") && (playerSelection !== "scissors")) {
+        input = prompt("Please choose an available weapon!");
+        playerSelection = input.toLowerCase();
+        }
+    //console.log(playerSelection);
     return playerSelection;
     }
 
@@ -44,25 +34,14 @@ function game(){
             console.log("You have secured victory for the humans!");
         }
 
-        else console.log("The match is a draw. May man and machine find peace and harmony on earth.");
     }
 
     for (let i = 0; i < 5; i ++) {
 
-        const computerSelection = getComputerChoice();
-        const playerSelection = getPlayerChoice();
-
-        function checker (playerSelection) {
-            if (playerSelection !== "rock" || playerSelection !== "paper" || playerSelection !== "scissors") {
-                console.log("Please choose one of the available weapons.")
-                computerSelection = null;
-            }
-            getPlayerChoice;
-        }
+        let computerSelection = getComputerChoice();
+        let playerSelection = getPlayerChoice();
         
-        
-        
-        function playRound (computerSelection, playerSelection) {
+        function playRound (computerSelection, playerSelection) {   
             console.log("The computer chose " + computerSelection);
             console.log("You chose " + playerSelection);  
             
@@ -97,13 +76,15 @@ function game(){
             }
                     
             else if (computerSelection == playerSelection) {
-            console.log("It's a tie!");
+            console.log("It's a tie! Go again!");
+            i--;
             }
         
                     
         }
     
-    checker(playerSelection);
+    
+    
     playRound (computerSelection, playerSelection);
     }  
 
